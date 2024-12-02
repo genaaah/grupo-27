@@ -17,9 +17,9 @@ class Casino {
     }
     apostar(juego, monto) {
         if (monto < juego.getMinApuesta()) {
-            throw new Error(`La apuesta minima para "${juego.nombre}" es ${juego.getMinApuesta}`);
+            throw new Error(`La apuesta mínima para "${juego.nombre}" es ${juego.getMinApuesta()}`);
         }
-        return juego.jugar();
+        return juego.jugar(monto);
     }
 }
 exports.Casino = Casino;

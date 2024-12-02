@@ -9,7 +9,7 @@ export abstract class Juego {
     this.minApuesta = minApuesta;
   }
 
-  abstract jugar(): Resultado;
+  abstract jugar(monto: number): Resultado;
 
   getMinApuesta(): number {
     return this.minApuesta;

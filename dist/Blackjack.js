@@ -11,40 +11,6 @@ class Blackjack extends Juego_1.Juego {
         this.manoJugador = [];
         this.manoDealer = [];
     }
-    //   jugar(monto: number): Resultado {
-    //     this.mazo.baraja();
-    //     this.manoJugador = this.mazo.repartir(2);
-    //     this.manoDealer = this.mazo.repartir(2);
-    //     const puntajeJugador = this.calcularPuntaje(this.manoJugador);
-    //     const puntajeDealer = this.calcularPuntaje(this.manoDealer);
-    //     while (puntajeJugador < 17) {
-    //       this.manoJugador.push(...this.mazo.repartir(1));
-    //     }
-    //     while (puntajeDealer < 17) {
-    //       this.manoDealer.push(...this.mazo.repartir(1));
-    //     }
-    //     const puntajeFinalJugador = this.calcularPuntaje(this.manoJugador);
-    //     const puntajeFinalDealer = this.calcularPuntaje(this.manoDealer);
-    //     let mensaje = `Jugador: ${puntajeFinalJugador}, Dealer${puntajeDealer}`;
-    //     if (puntajeFinalJugador > 21) {
-    //       mensaje += "\nEl jugaro se pasó de 21. Dealer gana.";
-    //       return new Resultado(-1, mensaje);
-    //     }
-    //     if (puntajeFinalDealer > 21) {
-    //       mensaje += "El dealer se pasó de 21. Jugador gana.";
-    //       return new Resultado(1, mensaje);
-    //     }
-    //     if (puntajeFinalJugador > puntajeFinalDealer) {
-    //       mensaje += "Jugador tiene más puntos. Jugador gana.";
-    //       return new Resultado(1, mensaje);
-    //     }
-    //     if (puntajeFinalJugador < puntajeFinalDealer) {
-    //       mensaje += "Dealer tiene más puntos. Dealer gana.";
-    //       return new Resultado(-1, mensaje);
-    //     }
-    //     mensaje += "Empate.";
-    //     return new Resultado(0, mensaje);
-    //   }
     jugar(monto) {
         if (monto < this.minApuesta) {
             throw new Error(`El monto apostado debe ser mayor o igual a la apuesta mínima: $${this.minApuesta}`);

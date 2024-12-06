@@ -24,4 +24,10 @@ export class Casino {
     }
     return juego.jugar(monto);
   }
+
+  public inicializarJuegos(juegos: Juego[]): void {
+    juegos.forEach((juego) => {
+      this.agregarJuego(juego);
+    });
+  }
 }

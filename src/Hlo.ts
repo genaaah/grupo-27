@@ -42,7 +42,7 @@ export class Hilo extends Juego {
         ganancia = monto * 2;
       } else {
         descripcion = "Perdiste";
-        ganancia = -monto;
+        ganancia = 0;
       }
     } else {
       if (siguienteCarta.getValor() < cartaActual.getValor()) {
@@ -50,7 +50,7 @@ export class Hilo extends Juego {
         ganancia = monto * 2;
       } else {
         descripcion = "Perdiste";
-        ganancia = -monto;
+        ganancia = 0;
       }
     }
 

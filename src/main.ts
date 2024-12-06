@@ -4,6 +4,7 @@ import { Blackjack } from "./Blackjack";
 import { Resultado } from "./Resultado";
 import { TragamonedasClasico } from "./TragamonedasClasico";
 import { TragamonedasModerno } from "./TragamonedasModerno";
+import { Hilo } from "./Hlo";
 
 const casino = new Casino();
 
@@ -12,12 +13,16 @@ const ruleta = new Ruleta("Ruleta Clásica", 10);
 const blackjack = new Blackjack("Blackjack Clásico", 15);
 const tragamonedasClasico= new TragamonedasClasico("Tragamonedas Clasico",0,"Frutas");
 const tragamonedasModerno= new TragamonedasModerno("Tragamonedas Moderno",0,"Vehiculos");
+const hilo= new Hilo("Hilo", 5);
+
+
 
 // Agregar juegos al casino
 casino.agregarJuego(ruleta);
 casino.agregarJuego(blackjack);
 casino.agregarJuego(tragamonedasClasico);
 casino.agregarJuego(tragamonedasModerno);
+casino.agregarJuego(hilo);
 
 const nombreJuegoRuleta = "Ruleta Clásica";
 const montoApuestaRuleta = 20;
@@ -76,3 +81,19 @@ try{
 }catch(error){
   console.log(`Error en Tragamonedas Moderno: ${(error as Error).message}`);
 }
+
+const nombreJuegoHilo = "Hilo";
+const montoApuestaHilo = 10;
+const esMayor = true; 
+
+try {
+  console.log(`\nApostando en ${nombreJuegoHilo} con $${montoApuestaHilo}...\n`);
+  const juegoSeleccionadoHilo = casino.seleccionarJuego(nombreJuegoHilo);
+  const resultadoHilo: Resultado = casino.apostar(juegoSeleccionadoHilo, montoApuestaHilo);
+  console.log(`Resultado de Hilo: ${resultadoHilo.descripcion}`);
+  console.log(`Ganancia obtenida: $${resultadoHilo.ganancia}`);
+} catch (error) {
+  console.error(`Error: ${(error as Error).message}`);
+}
+
+

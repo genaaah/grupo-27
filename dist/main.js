@@ -5,17 +5,20 @@ const Ruleta_1 = require("./Ruleta");
 const Blackjack_1 = require("./Blackjack");
 const TragamonedasClasico_1 = require("./TragamonedasClasico");
 const TragamonedasModerno_1 = require("./TragamonedasModerno");
+const Hlo_1 = require("./Hlo");
 const casino = new Casino_1.Casino();
 // Crear juegos
 const ruleta = new Ruleta_1.Ruleta("Ruleta Clásica", 10);
 const blackjack = new Blackjack_1.Blackjack("Blackjack Clásico", 15);
 const tragamonedasClasico = new TragamonedasClasico_1.TragamonedasClasico("Tragamonedas Clasico", 0, "Frutas");
 const tragamonedasModerno = new TragamonedasModerno_1.TragamonedasModerno("Tragamonedas Moderno", 0, "Vehiculos");
+const hilo = new Hlo_1.Hilo("Hilo", 5);
 // Agregar juegos al casino
 casino.agregarJuego(ruleta);
 casino.agregarJuego(blackjack);
 casino.agregarJuego(tragamonedasClasico);
 casino.agregarJuego(tragamonedasModerno);
+casino.agregarJuego(hilo);
 const nombreJuegoRuleta = "Ruleta Clásica";
 const montoApuestaRuleta = 20;
 const nombreJuegoBlackjack = "Blackjack Clásico";
@@ -59,4 +62,17 @@ try {
 }
 catch (error) {
     console.log(`Error en Tragamonedas Moderno: ${error.message}`);
+}
+const nombreJuegoHilo = "Hilo";
+const montoApuestaHilo = 10;
+const esMayor = true;
+try {
+    console.log(`\nApostando en ${nombreJuegoHilo} con $${montoApuestaHilo}...\n`);
+    const juegoSeleccionadoHilo = casino.seleccionarJuego(nombreJuegoHilo);
+    const resultadoHilo = casino.apostar(juegoSeleccionadoHilo, montoApuestaHilo);
+    console.log(`Resultado de Hilo: ${resultadoHilo.descripcion}`);
+    console.log(`Ganancia obtenida: $${resultadoHilo.ganancia}`);
+}
+catch (error) {
+    console.error(`Error: ${error.message}`);
 }

@@ -34,7 +34,7 @@ class Hilo extends Juego_1.Juego {
             }
             else {
                 descripcion = "Perdiste";
-                ganancia = -monto;
+                ganancia = 0;
             }
         }
         else {
@@ -44,7 +44,7 @@ class Hilo extends Juego_1.Juego {
             }
             else {
                 descripcion = "Perdiste";
-                ganancia = -monto;
+                ganancia = 0;
             }
         }
         return new Resultado_1.Resultado(ganancia, descripcion);

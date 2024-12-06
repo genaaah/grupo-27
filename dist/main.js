@@ -6,12 +6,13 @@ const Blackjack_1 = require("./Blackjack");
 const TragamonedasClasico_1 = require("./TragamonedasClasico");
 const TragamonedasModerno_1 = require("./TragamonedasModerno");
 const Hlo_1 = require("./Hlo");
+const Coinflip_1 = require("./Coinflip");
 const casino = new Casino_1.Casino();
 // Crear juegos
 const ruleta = new Ruleta_1.Ruleta("Ruleta Clásica", 10);
 const blackjack = new Blackjack_1.Blackjack("Blackjack Clásico", 15);
-const tragamonedasClasico = new TragamonedasClasico_1.TragamonedasClasico("Tragamonedas Clasico", 0, "Frutas");
-const tragamonedasModerno = new TragamonedasModerno_1.TragamonedasModerno("Tragamonedas Moderno", 0, "Vehiculos");
+const tragamonedasClasico = new TragamonedasClasico_1.TragamonedasClasico("Tragamonedas Clasico", 10, "Frutas");
+const tragamonedasModerno = new TragamonedasModerno_1.TragamonedasModerno("Tragamonedas Moderno", 10, "Vehiculos");
 const hilo = new Hlo_1.Hilo("Hilo", 5);
 // Agregar juegos al casino
 casino.agregarJuego(ruleta);
@@ -41,28 +42,29 @@ catch (error) {
 }
 //Apostar Tragamonedas Clasico:
 const juegoTragamonedasClasico = "Tragamonedas Clasico";
-const montoApuestaTragamonedasClasico = 10;
+const montoApuestaTragamonedasClasico = 20;
 try {
     const juegoClasico = casino.seleccionarJuego(juegoTragamonedasClasico);
     const resultadoClasico = casino.apostar(juegoClasico, montoApuestaTragamonedasClasico);
     console.log(`Tragamonedas Clasico - Resultado: ${resultadoClasico.descripcion}`);
-    console.log(`La ganancia es de : $$ ${resultadoClasico.descripcion}`);
+    console.log(`La ganancia es de : $$ ${resultadoClasico.ganancia}`);
 }
 catch (error) {
     console.log(`Error en Tragamonedas Clasico: ${error.message}`);
 }
 //Apostar Tragamonedas Moderno:
-const juegoTragamonedasModerno = "Tragamonedas Clasico";
-const montoApuestaTragamonedasModerno = 10;
+const juegoTragamonedasModerno = "Tragamonedas Moderno";
+const montoApuestaTragamonedasModerno = 30;
 try {
     const juegoModerno = casino.seleccionarJuego(juegoTragamonedasModerno);
     const resultadoModerno = casino.apostar(juegoModerno, montoApuestaTragamonedasModerno);
     console.log(`Tragamonedas Moderno - Resultado: ${resultadoModerno.descripcion}`);
-    console.log(`La ganancia es de : $$ ${resultadoModerno.descripcion}`);
+    console.log(`La ganancia es de : $$ ${resultadoModerno.ganancia}`);
 }
 catch (error) {
     console.log(`Error en Tragamonedas Moderno: ${error.message}`);
 }
+// Apostar Hilo
 const nombreJuegoHilo = "Hilo";
 const montoApuestaHilo = 10;
 const esMayor = true;
@@ -75,4 +77,19 @@ try {
 }
 catch (error) {
     console.error(`Error: ${error.message}`);
+}
+// Apostar CoinFlip
+const coinFlip = new Coinflip_1.CoinFlip("Coin Flip", 5);
+casino.agregarJuego(coinFlip);
+const nombreJuegoCoinFlip = "Coin Flip";
+const montoApuestaCoinFlip = 10;
+try {
+    console.log(`\nApostando en ${nombreJuegoCoinFlip} con $${montoApuestaCoinFlip}...\n`);
+    const juegoSeleccionadoCoinFlip = casino.seleccionarJuego(nombreJuegoCoinFlip);
+    const resultadoCoinFlip = casino.apostar(juegoSeleccionadoCoinFlip, montoApuestaCoinFlip);
+    console.log(`Resultado de CoinFlip: ${resultadoCoinFlip.descripcion}`);
+    console.log(`Ganancia obtenida: $${resultadoCoinFlip.ganancia}`);
+}
+catch (error) {
+    console.error(`Error en CoinFlip: ${error.message}`);
 }
